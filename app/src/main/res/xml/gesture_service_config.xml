@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 无障碍服务配置 -->
+<!-- canRetrieveWindowContent=true 允许读取抖音窗口节点树，用于精准定位评论/点赞按钮 -->
+<!-- packageNames 限定只监听抖音，避免误触发其他 App 并节省性能 -->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/service_label"
+    android:accessibilityEventTypes="typeWindowStateChanged|typeWindowContentChanged"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:canPerformGestures="true"
+    android:canRetrieveWindowContent="true"
+    android:packageNames="com.ss.android.ugc.aweme"
+    android:notificationTimeout="100" />

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 摄像头 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 前台服务：摄像头识别在后台持续运行 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
+    <!-- 悬浮窗：让 Preview Surface 在后台也能创建（小米机型后台摄像头必需） -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 防止息屏（洗澡时手机挂墙上不锁屏） -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 请求加入电池优化白名单：清后台/息屏后 ROM 杀进程会导致无障碍服务被断开，
+         豁免后系统 Doze/电池优化不再杀本 App 的进程（ROM 管家清理仍需用户手动加白名单） -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <uses-feature android:name="android.hardware.camera.any" android:required="true" />
+    <uses-feature android:name="android.hardware.camera.front" android:required="true" />
+
+    <!-- Android 11+ package visibility: required for the "打开抖音" shortcut. -->
+    <queries>
+        <package android:name="com.ss.android.ugc.aweme" />
+        <package android:name="com.ss.android.ugc.aweme.lite" />
+        <package android:name="com.ss.android.ugc.aweme.musically" />
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DouyinGesture"
+        tools:targetApi="34">
+
+        <!-- 主界面 -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 无障碍服务：跨 App 模拟手势控制抖音 -->
+        <service
+            android:name=".service.DouyinGestureService"
+            android:exported="false"
+            android:label="@string/service_label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/gesture_service_config" />
+        </service>
+
+        <!-- 前台服务：保持摄像头持续识别 -->
+        <service
+            android:name=".service.CameraForegroundService"
+            android:exported="false"
+            android:foregroundServiceType="camera" />
+    </application>
+
+</manifest>

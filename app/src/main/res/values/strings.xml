@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">手势控抖音</string>
+    <string name="service_label">手势控制抖音无障碍服务</string>
+
+    <!-- 主界面 -->
+    <string name="title_main">手势控制抖音 · 洗澡专用</string>
+    <string name="btn_start">开启手势控制</string>
+    <string name="btn_stop">停止手势控制</string>
+    <string name="btn_open_accessibility">去开启无障碍服务</string>
+    <string name="btn_open_douyin">打开抖音</string>
+    <string name="btn_battery_whitelist">加入电池优化白名单（防清理后台）</string>
+
+    <!-- 保活提示 -->
+    <string name="keepalive_title">清理后台后无障碍被关？</string>
+    <string name="keepalive_hint">清后台被杀后无需去设置重开无障碍：只要开关仍为开启状态，重新打开本 App 系统会自动重连。若开关被系统关闭（常见于小米/华为等 ROM 管家深度清理），请进入手机管家，把本 App 加入「允许自启动 / 后台运行 / 不清理」白名单。</string>
+
+    <!-- 状态 -->
+    <string name="status_idle">未启动</string>
+    <string name="status_running">运行中</string>
+    <string name="status_no_accessibility">无障碍服务未开启</string>
+    <string name="status_no_camera_permission">未授予摄像头权限</string>
+
+    <!-- 前台服务通知 -->
+    <string name="notif_channel_id">camera_gesture_channel</string>
+    <string name="notif_channel_name">摄像头手势识别</string>
+    <string name="notif_title">手势控制运行中</string>
+    <string name="notif_text">正在识别手势以控制抖音</string>
+
+    <!-- 手势说明 -->
+    <string name="help_title">手势说明</string>
+    <string name="help_up">手掌向上挥 → 下一个视频</string>
+    <string name="help_down">手掌向下挥 → 上一个视频</string>
+    <string name="help_like">握拳再张开 → 双击点赞</string>
+    <string name="help_comment">V 字手势(食指+中指) → 评论区</string>
+    <string name="help_vol_up">拇指食指张开 → 音量加</string>
+    <string name="help_vol_down">拇指食指捏合 → 音量减</string>
+    <string name="help_pause">张开手保持 2 秒 → 暂停/播放</string>
+</resources>

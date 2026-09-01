@@ -1,0 +1,24 @@
+# Gradle
+.gradle/
+build/
+app/build/
+local.properties
+
+# IDE
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+
+# 签名
+*.jks
+*.keystore
+
+# 原生库（由 gradle 依赖自动解压，不入库）
+*.so
+*.tflite
+
+# 日志与临时文件
+*.log
+.DS_Store
